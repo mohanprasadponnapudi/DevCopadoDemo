@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Backup_TM__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Backup TM</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Monster_Com_JobForms</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Passport_submissions_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Passport submissions date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>country__c</fullName>
+        <externalId>false</externalId>
+        <label>country(local)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Currency_changed_to_Global_PLV</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>country_code__c</fullName>
+        <externalId>false</externalId>
+        <label>country code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>currency_L__c</fullName>
+        <externalId>false</externalId>
+        <label>currency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>currency_promoted_GPV</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>joining_date__c</fullName>
+        <externalId>false</externalId>
+        <label>joining date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>outlook_name__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(ISPICKVAL( Gender__c, &apos;Male&apos;), &apos;Mr.&apos;, &apos;Ms.&apos;) &amp; &quot; &quot; &amp;
+
+  First_Name__c &amp; &quot; &quot;&amp; Last_Name__c</formula>
+        <label>outlook name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>passport_alert__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+ Passport_submissions_date__c &gt; Today(), &quot;Sorry. your passport submission date is passed&quot;, (TEXT(Passport_submissions_date__c-Today()))&amp; &apos; days left to submit your passport&apos;
+
+)</formula>
+        <label>passport alert</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <validationRules>
+        <fullName>Monstar_Age_validation_Rule</fullName>
+        <active>false</active>
+        <errorConditionFormula>Age__c &gt; 60</errorConditionFormula>
+        <errorMessage>Sorry. Age should not be more then 60.</errorMessage>
+    </validationRules>
+</CustomObject>
